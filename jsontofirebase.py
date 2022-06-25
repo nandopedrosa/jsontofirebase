@@ -17,3 +17,5 @@ for filename in os.listdir('data'): #Iterate through each json in the data direc
         docs = json.loads(f.read())
         for doc in docs:
                 db.collection(collection_name).add(doc)
+
+print("Finished sending the json files to Firebase.")
