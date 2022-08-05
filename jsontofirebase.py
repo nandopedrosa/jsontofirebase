@@ -13,9 +13,9 @@ db = firestore.client()
 for filename in os.listdir('data'): #Iterate through each json in the data directory
     if filename.endswith('.json'):        
         collection_name = filename.split('.')[0] # The name of the collection is the file prefix
-        f = open('data/' + filename, 'r')
+        f = open('data/' + filename, 'r', encoding='UTF-8')
         docs = json.loads(f.read())
-        for doc in docs:
+        for doc in docs:            
                 db.collection(collection_name).add(doc)
 
 print("Finished sending the json files to Firebase.")
